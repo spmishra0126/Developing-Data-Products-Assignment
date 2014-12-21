@@ -1,0 +1,84 @@
+---
+title       : GLM's on the Swiss Data Set
+subtitle    : Understanding and Explaining General Linear Models Has Become Easy
+
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Why Should You Know Linear Regression?
+
+* easy to use
+* easy to interpret
+* applicable for a huge variety of problems
+* fairly accurate
+
+$\Rightarrow$ among the most widely used algorithms by data scientists
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 4, fig.align = 'center'}
+library(ggplot2)
+p <- ggplot(swiss, aes(Fertility, Infant.Mortality))
+p <- p + geom_point() + stat_smooth(method = "lm")
+p <- p + xlab("") + ylab("")
+p
+```
+
+---
+
+## Why Should You Know General Linear Models?
+
+* only very few real world problems are two-dimensional
+* lots of problems with discrete outcomes
+* error models have to stay interpretable even when the outcome has to be positive
+
+```{r, echo = FALSE}
+glm(Infant.Mortality ~ Fertility + Education + Catholic, data = swiss)
+```
+
+---
+
+## How Does The App Help You Understand GLM's?
+
+* no need to learn a language like R
+* you can concentrate on the algorithm
+* you can play around with different predictors and compare their effects
+
+<center><img src=./assets/img/main.png height='60%' width='60%' style='margin:0px; border: 2px solid #FF0000'/></center>
+
+
+
+--- &twoColumns
+
+## How Does The App Help You Explain GLM's?
+
+*** { name : left }
+
+* no need to explain any code syntax
+* focus on the interpretation
+* explain the effects of in-/exclusion of certain predictors on
+  * the model quality
+  * the coefficients and their significance
+  * the model visualizations
+  * the sign of other coefficients (see examples to the right)
+
+*** { name : right }
+
+```{r}
+glm (
+    Infant.Mortality ~ Fertility
+                       + Examination,
+    data = swiss
+)$coefficients
+```
+
+```{r}
+glm (
+    Infant.Mortality ~ Examination,
+    data = swiss
+)$coefficients
+```

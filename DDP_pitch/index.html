@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GLM's on the Swiss Data Set</title>
+  <meta charset="utf-8">
+  <meta name="description" content="GLM's on the Swiss Data Set">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>GLM's on the Swiss Data Set</h1>
+    <h2>Understanding and Explaining General Linear Models Has Become Easy</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Why Should You Know Linear Regression?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>easy to use</li>
+<li>easy to interpret</li>
+<li>applicable for a huge variety of problems</li>
+<li>fairly accurate</li>
+</ul>
+
+<p>\(\Rightarrow\) among the most widely used algorithms by data scientists</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Why Should You Know General Linear Models?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>only very few real world problems are two-dimensional</li>
+<li>lots of problems with discrete outcomes</li>
+<li>error models have to stay interpretable even when the outcome has to be positive</li>
+</ul>
+
+<pre><code>## 
+## Call:  glm(formula = Infant.Mortality ~ Fertility + Education + Catholic, 
+##     data = swiss)
+## 
+## Coefficients:
+## (Intercept)    Fertility    Education     Catholic  
+##    7.867371     0.159631     0.103403    -0.006246  
+## 
+## Degrees of Freedom: 46 Total (i.e. Null);  43 Residual
+## Null Deviance:       390.3 
+## Residual Deviance: 298.3     AIC: 230.2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How Does The App Help You Understand GLM&#39;s?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>no need to learn a language like R</li>
+<li>you can concentrate on the algorithm</li>
+<li>you can play around with different predictors and compare their effects</li>
+</ul>
+
+<p><center><img src=./assets/img/main.png height='60%' width='60%' style='margin:0px; border: 2px solid #FF0000'/></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4">
+  <hgroup>
+    <h2>How Does The App Help You Explain GLM&#39;s?</h2>
+  </hgroup>
+  <article>
+      
+    <div class='left' style='float:left;width:48%'>
+     <ul>
+<li>no need to explain any code syntax</li>
+<li>focus on the interpretation</li>
+<li>explain the effects of in-/exclusion of certain predictors on
+
+<ul>
+<li>the model quality</li>
+<li>the coefficients and their significance</li>
+<li>the model visualizations</li>
+<li>the sign of other coefficients (see examples to the right)</li>
+</ul></li>
+</ul>
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <pre><code class="r">glm (
+    Infant.Mortality ~ Fertility
+                       + Examination,
+    data = swiss
+)$coefficients
+</code></pre>
+
+<pre><code>## (Intercept)   Fertility Examination 
+##  8.71870014  0.13718600  0.09710969
+</code></pre>
+
+<pre><code class="r">glm (
+    Infant.Mortality ~ Examination,
+    data = swiss
+)$coefficients
+</code></pre>
+
+<pre><code>## (Intercept) Examination 
+## 20.62898680 -0.04162888
+</code></pre>
+
+    </div>
+  </article>
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Why Should You Know Linear Regression?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Why Should You Know General Linear Models?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How Does The App Help You Understand GLM&#39;s?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How Does The App Help You Explain GLM&#39;s?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
